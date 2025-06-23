@@ -13,12 +13,12 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Serve static files from parent directory (frontend)
-app.use(express.static(path.join(__dirname, "..")));
+// Serve static files from current directory (frontend)
+app.use(express.static(path.join(__dirname)));
 
 // Serve the HTML file
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "index.html"));
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 // Nodemailer configuration
